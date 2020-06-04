@@ -3,7 +3,7 @@
     <div class="canvas-box">
       <canvas id="canvas">你的浏览器不支持canvas</canvas>
     </div>
-    <div id="nav">
+    <div id="nav" v-if="showNav">
       <div class="nav-item">
         <router-link to="/">
           <p>
@@ -25,6 +25,29 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+  watch: {
+    "$route.path": function(val){
+      if (val.indexOf("projectDetail") !== -1) {
+        this.showNav = false;
+      } else {
+        this.showNav = true;
+      }
+    }
+  },
+  data() {
+    return {
+      showNav: true
+    };
+  },
+  created() {
+    console.log(this.showNav);
+  }
+};
+</script>
+
 <style lang="scss">
 body {
   background: linear-gradient(to bottom, #131313 0%, #02101c 100%);
@@ -33,6 +56,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
+  right: 0;
   z-index: -1;
 }
 #app {
@@ -41,7 +65,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 100px;
 }
 
 #nav {
