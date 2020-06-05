@@ -11,7 +11,6 @@
   function init() {
     WINDOW_WIDTH = document.body.offsetWidth;
     WINDOW_HEIGHT = document.body.offsetHeight;
-    console.log(WINDOW_WIDTH);
 
     mouseX = WINDOW_WIDTH / 2;
     mouseY = WINDOW_HEIGHT / 2;

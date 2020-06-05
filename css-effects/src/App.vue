@@ -29,7 +29,7 @@
 export default {
   name: "App",
   watch: {
-    "$route.path": function(val){
+    "$route.path": function(val) {
       if (val.indexOf("projectDetail") !== -1) {
         this.showNav = false;
       } else {
@@ -42,9 +42,6 @@ export default {
       showNav: true
     };
   },
-  created() {
-    console.log(this.showNav);
-  }
 };
 </script>
 
